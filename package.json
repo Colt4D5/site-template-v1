@@ -1,0 +1,26 @@
+{
+  "name": "site-skeleton",
+  "version": "1.0.0",
+  "description": "This is Oak Harbour's Starter Kit v3 that I've adapted to my own usage.",
+  "main": "dark.js",
+  "scripts": {
+    "dev": "sass --no-error-css --watch assets/scss:assets/css --style=compressed & npx postcss assets/css/**/*.css --use autoprefixer -d assets/css -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oak-Harbor-Kits/Starter-KitV3.git"
+  },
+  "author": "Colton Allen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oak-Harbor-Kits/Starter-KitV3/issues"
+  },
+  "homepage": "https://github.com/Oak-Harbor-Kits/Starter-KitV3#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.8",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.49.9"
+  }
+}

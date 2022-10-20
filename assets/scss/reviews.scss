@@ -1,0 +1,267 @@
+@use "sass:math";
+
+/*-- -------------------------- -->
+<---           Reviews          -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0em) {
+  #reviews {
+    padding-top: #{math.div(120, 16)}em;
+    padding-bottom: #{math.div(50, 16)}em;
+    margin: auto;
+
+    .container {
+      width: 96%;
+      max-width: #{math.div(1320, 16)}em;
+    }
+
+    .review {
+      padding: #{math.div(64, 16)}em #{math.div(30, 16)}em #{math.div(18, 16)}em
+        #{math.div(30, 16)}em;
+      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: #{math.div(410, 16)}em;
+      margin: auto;
+      margin-bottom: #{math.div(100, 16)}em;
+      border-radius: #{math.div(5, 16)}em;
+      position: relative;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .profile {
+        display: block;
+        height: #{math.div(99, 16)}em;
+        width: #{math.div(99, 16)}em;
+        margin-left: 0;
+        border-radius: 50%;
+        margin-bottom: #{math.div(16, 16)}em;
+        position: absolute;
+        left: #{math.div(30, 16)}em;
+        top: #{math.div(-51, 16)}em;
+      }
+
+      p {
+        line-height: #{math.div(24, 18)};
+        margin-bottom: #{math.div(28, 18)}em;
+        text-align: left;
+      }
+
+      .star-group {
+        border-top: 1px solid #e7e7e7;
+        padding-top: #{math.div(16, 16)}em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin-top: auto;
+
+        .name {
+          color: #1a1a1a;
+          line-height: #{math.div(24, 18)}em;
+          text-align: left;
+          font-weight: bold;
+          display: block;
+        }
+
+        .desc {
+          color: #575757;
+          font-weight: 400;
+          display: block;
+        }
+
+        img {
+          display: block;
+          width: #{math.div(91, 16)}em;
+          height: #{math.div(15, 16)}em;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 48em) {
+  #reviews {
+    padding-top: #{math.div(150, 16)}em;
+    padding-bottom: #{math.div(50, 16)}em;
+
+    .container {
+      font-size: min(1.4vw, 1em);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
+      column-gap: #{math.div(30, 16)}em;
+    }
+
+    .review {
+      margin: 0;
+      margin-bottom: #{math.div(150, 16)}em;
+
+      &:last-of-type {
+        margin-bottom: #{math.div(150, 16)}em;
+      }
+    }
+  }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0em) {
+  body.dark-mode {
+    #reviews {
+      .review {
+        background: var(--medium);
+
+        .name {
+          color: #fff;
+        }
+
+        .desc {
+          color: #fff;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+/*-- -------------------------- -->
+<---    Final Call To Action    -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0em) {
+  #cta {
+    position: relative;
+    padding: #{math.div(50, 16)}em 0;
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: #000;
+      opacity: 0.7;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    picture {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -2;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .title {
+      font-weight: 900;
+      font-size: min(9vw, 3em);
+      line-height: math.div(58, 48);
+      color: #fff;
+      position: relative;
+      margin-bottom: math.div(36, 48) em;
+      text-align: center;
+    }
+
+    p {
+      color: #fff;
+      text-align: center;
+      opacity: 1;
+      margin: auto;
+      margin-bottom: #{math.div(36, 18)}em;
+      width: 96%;
+      max-width: #{math.div(598, 18)}em;
+    }
+  }
+}
+
+/* Small Desktop */
+@media only screen and (min-width: 64em) {
+  #cta {
+    padding: #{math.div(168, 16)}em 0;
+  }
+}
+
+/* Large Desktop */
+@media only screen and (min-width: 1300px) {
+  #cta {
+    position: relative;
+    margin-top: #{math.div(100, 16)}em;
+    &:before {
+      display: none;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: #{math.div(1108, 16)}em;
+      width: #{math.div(2000, 16)}em;
+      background: url("../images/cta-squares.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 1;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -3;
+    }
+    .container {
+      width: 90.0625%;
+      margin: auto;
+    }
+
+    picture {
+      width: 90.0625%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 100%;
+        background: #000;
+        opacity: 0.7;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0em) {
+  body.dark-mode {
+    #cta {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
