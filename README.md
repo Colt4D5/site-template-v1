@@ -21,48 +21,10 @@ https://www.oakharborwebdesigns.com/blog/2020/december/how-to-add-dark-mode-to-a
 In the LESS file (dark.less), choose the screen size you want to target and inside the body.dark-mode brackets just start adding you new style declarations for dark mode and that’s it!
 
 
-# SET UP LESS 
-
-  This new starter kit is based on ems for more responsive design.  I have utilized the LESS preprocessor to use its ability to do em calculations.  I use the Koala App to   choose the css file I want to watch and I click the .less files I want to auto compile and hit the compile button.  This will now continuously watch for changes in your .less file inside the css folder and compile the .less into it's own .css file to load instantly on save every time in your local server. 
-
-  Here is the link to download Koala:
-
-  http://koala-app.com/
-
-  You can have it watch multiple .less files and multiple folders at once.  You just have to select each .less file individually and hit the compile button in the lower right.
-
-  INSTALL LESS
-
-  To install the LESS preprocessor, you first must download and install npm so you can install any program you want with one line of code:
-
-  https://nodejs.org/en/download/
-
-  Once that is downloaded and installed, download and install GIT terminal or just use your default terminal window on your computer
-
-  Download GIT
-  https://gitforwindows.org/
-
-  OR
-
-  Open the default terminal on your computer
-  https://www.ionos.com/help/email/troubleshooting-mail-basicmail-business/access-the-command-prompt-or-terminal/
-
-  Then open your GIT terminal or default computer terminal and copy and paste this in your terminal and hit enter to install LESS
-
-  npm install less
-
-  Now you have LESS on your machine!  Hopefully that wasn't too bad.  It was a little tricky for me to get started too but I used the resources I linked here to figure it out.
-
-
-
-
-  
-  
-  
 # CALCULATING THE EM UNITS
 
 Introduction:
-As you may or may not know, em units are based on the font size of its parent element. If the parent element does not have a declared font size in your css, then the next parent element with a declared font size will be it's base.  Since I am not declaring a font size on any containers, literally everything on the page will look up to the body tag for a font size, and since we declared a font size of 20px that is what they will divide themselves by to get the em value.  So I just set the font size on the <body> to be 15px on mobile, tablet, and small desktop up to 1023px wide.  Then on 1024px wide it is set 20 the actual default of 20px.
+As you may or may not know, em units are based on the font size of its parent element. If the parent element does not have a declared font size in your css, then the next parent element with a declared font size will be it's base. Since I am not declaring a font size on any containers, literally everything on the page will look up to the body tag for a font size, and since we declared a font size of 20px that is what they will divide themselves by to get the em value.  So I just set the font size on the <body> to be 15px on mobile, tablet, and small desktop up to 1023px wide.  Then on 1024px wide it is set 20 the actual default of 20px.
 
   
   
