@@ -1,3 +1,4 @@
+@use 'mixins' as mixin;
 @use "sass:math";
 
 /*-- -------------------------- -->
@@ -5,127 +6,115 @@
 <--- -------------------------- -*/
 
 /* Mobile */
-@media only screen and (min-width: 0em) {
-  #sidebyside {
-    padding: 50px 0;
-    .container {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .content {
-      order: 2;
-      margin: auto;
-      margin-top: #{math.div(75, 16)}em;
-      max-width: #{math.div(611, 16)}em;
-
-      h2 {
-        font-size: #{math.div(48, 16)}em;
-        margin-bottom: #{math.div(42, 48)}em;
-      }
-
-      p {
-        margin-bottom: #{math.div(20, 18)}em;
-      }
-
-      ul {
-        padding-left: #{math.div(20, 16)}em;
-        margin-bottom: #{math.div(20, 16)}em;
-
-        li {
-          list-style: none;
-          display: flex;
-          justify-content: flex-start;
-          align-items: flex-start;
-
-          img {
-            margin-right: #{math.div(10, 16)}em;
-            margin-top: #{math.div(4, 18)}em;
-          }
-        }
-      }
-
-      .button-solid {
-        margin-top: #{math.div(25, 14)}em;
-      }
-    }
-
-    .image-box {
-      display: block;
-      position: relative;
-      margin: auto;
-      width: #{math.div(611, 16)}em;
-      height: #{math.div(861, 16)}em;
-      font-size: min(1.4vw, 1em); // scales the image-box down
-
-      &:before {
-        content: "";
-        position: absolute;
-        display: block;
-        height: 100%;
-        width: 100%;
-        background: var(--primary);
-        opacity: 1;
-        top: #{math.div(40, 16)}em;
-        left: #{math.div(-40, 16)}em;
-      }
-
-      &:after {
-        content: "";
-        position: absolute;
-        display: block;
-        height: #{math.div(516, 16)}em;
-        width: #{math.div(460, 16)}em;
-        background: url("../images/content-circles.svg");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 1;
-        top: #{math.div(-226, 16)}em;
-        right: #{math.div(-109, 16)}em;
-        z-index: -1;
-      }
-
-      img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-}
-
-/* Inbetween */
-@media only screen and (min-width: 666px) {
-  #sidebyside {
+#sidebyside {
+  padding: 50px 0;
+  @include mixin.breakpoint(666px) {
     padding: #{math.div(100, 16)}em 0;
   }
-}
-
-/* Small Desktop */
-@media only screen and (min-width: 1300px) {
-  #sidebyside {
+  @include mixin.breakpoint(xlarge) {
     padding: #{math.div(150, 16)}em 0;
-    .container {
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    @include mixin.breakpoint(xlarge) {
       max-width: #{math.div(1391, 16)}em;
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
     }
+  }
 
-    .content {
+  .content {
+    order: 2;
+    margin: auto;
+    margin-top: #{math.div(75, 16)}em;
+    max-width: #{math.div(611, 16)}em;
+    @include mixin.breakpoint(xlarge) {
       margin: 0;
       width: 60%;
     }
 
-    .image-box {
+    h2 {
+      font-size: #{math.div(48, 16)}em;
+      margin-bottom: #{math.div(42, 48)}em;
+    }
+
+    p {
+      margin-bottom: #{math.div(20, 18)}em;
+    }
+
+    ul {
+      padding-left: #{math.div(20, 16)}em;
+      margin-bottom: #{math.div(20, 16)}em;
+
+      li {
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        img {
+          margin-right: #{math.div(10, 16)}em;
+          margin-top: #{math.div(4, 18)}em;
+        }
+      }
+    }
+
+    .button-solid {
+      margin-top: #{math.div(25, 14)}em;
+    }
+  }
+
+  .image-box {
+    display: block;
+    position: relative;
+    margin: auto;
+    width: #{math.div(611, 16)}em;
+    height: #{math.div(861, 16)}em;
+    font-size: min(1.4vw, 1em); // scales the image-box down
+    @include mixin.breakpoint(xlarge) {
       margin: 0;
       margin-right: #{math.div(170, 16)}em;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: var(--primary);
+      opacity: 1;
+      top: #{math.div(40, 16)}em;
+      left: #{math.div(-40, 16)}em;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: #{math.div(516, 16)}em;
+      width: #{math.div(460, 16)}em;
+      background: url("../images/content-circles.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 1;
+      top: #{math.div(-226, 16)}em;
+      right: #{math.div(-109, 16)}em;
+      z-index: -1;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }
@@ -135,126 +124,77 @@
 <--- -------------------------- -*/
 
 /* Mobile */
-@media only screen and (min-width: 0em) {
-  #sidebyside-reverse {
-    padding: 50px 0;
-    .container {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .content {
-      order: 2;
-      margin: auto;
-      margin-top: #{math.div(75, 16)}em;
-      max-width: #{math.div(611, 16)}em;
-
-      h2 {
-        font-size: #{math.div(48, 16)}em;
-        margin-bottom: #{math.div(42, 48)}em;
-      }
-
-      p {
-        margin-bottom: #{math.div(20, 18)}em;
-      }
-
-      ul {
-        padding-left: #{math.div(20, 16)}em;
-        margin-bottom: #{math.div(20, 16)}em;
-
-        li {
-          list-style: none;
-          display: flex;
-          justify-content: flex-start;
-          align-items: flex-start;
-
-          img {
-            margin-right: #{math.div(10, 16)}em;
-            margin-top: #{math.div(4, 18)}em;
-          }
-        }
-      }
-
-      .button-solid {
-        margin-top: #{math.div(25, 14)}em;
-      }
-    }
-
-    .image-box {
-      display: block;
-      position: relative;
-      margin: auto;
-      width: #{math.div(611, 16)}em;
-      height: #{math.div(861, 16)}em;
-      font-size: min(1.4vw, 1em); // scales the image-box down
-
-      &:before {
-        content: "";
-        position: absolute;
-        display: block;
-        height: 100%;
-        width: 100%;
-        background: var(--primary);
-        opacity: 1;
-        top: #{math.div(40, 16)}em;
-        left: #{math.div(-40, 16)}em;
-      }
-
-      &:after {
-        content: "";
-        position: absolute;
-        display: block;
-        height: #{math.div(516, 16)}em;
-        width: #{math.div(460, 16)}em;
-        background: url("../images/content-circles.svg");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 1;
-        top: #{math.div(-226, 16)}em;
-        right: #{math.div(-109, 16)}em;
-        z-index: -1;
-      }
-
-      img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-}
-
-/* Inbetween */
-@media only screen and (min-width: 666px) {
-  #sidebyside-reverse {
+#sidebyside-reverse {
+  padding: 50px 0;
+  @include mixin.breakpoint(666px) {
     padding: #{math.div(100, 16)}em 0;
   }
-}
-
-/* Small Desktop */
-@media only screen and (min-width: 1300px) {
-  #sidebyside-reverse {
+  @include mixin.breakpoint(xlarge) {
     padding: #{math.div(150, 16)}em 0;
-    .container {
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    @include mixin.breakpoint(xlarge) {
       max-width: #{math.div(1391, 16)}em;
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
     }
+  }
 
-    .content {
+  .content {
+    order: 2;
+    margin: auto;
+    margin-top: #{math.div(75, 16)}em;
+    max-width: #{math.div(611, 16)}em;
+    @include mixin.breakpoint(xlarge) {
       margin: 0;
       width: 60%;
       order: 1;
     }
 
-    .image-box {
+    h2 {
+      font-size: #{math.div(48, 16)}em;
+      margin-bottom: #{math.div(42, 48)}em;
+    }
+
+    p {
+      margin-bottom: #{math.div(20, 18)}em;
+    }
+
+    ul {
+      padding-left: #{math.div(20, 16)}em;
+      margin-bottom: #{math.div(20, 16)}em;
+
+      li {
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        img {
+          margin-right: #{math.div(10, 16)}em;
+          margin-top: #{math.div(4, 18)}em;
+        }
+      }
+    }
+
+    .button-solid {
+      margin-top: #{math.div(25, 14)}em;
+    }
+  }
+
+  .image-box {
+    display: block;
+    position: relative;
+    margin: auto;
+    width: #{math.div(611, 16)}em;
+    height: #{math.div(861, 16)}em;
+    font-size: min(1.4vw, 1em); // scales the image-box down
+    @include mixin.breakpoint(xlarge) {
       margin: 0;
       margin-left: #{math.div(170, 16)}em;
       order: 2;
@@ -269,6 +209,43 @@
         left: #{math.div(-109, 16)}em;
       }
     }
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: var(--primary);
+      opacity: 1;
+      top: #{math.div(40, 16)}em;
+      left: #{math.div(-40, 16)}em;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: #{math.div(516, 16)}em;
+      width: #{math.div(460, 16)}em;
+      background: url("../images/content-circles.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 1;
+      top: #{math.div(-226, 16)}em;
+      right: #{math.div(-109, 16)}em;
+      z-index: -1;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
 
@@ -277,78 +254,13 @@
 <--- -------------------------- -*/
 
 /* Mobile */
-@media only screen and (min-width: 0em) {
-  #cta {
-    position: relative;
-    padding: #{math.div(50, 16)}em 0;
-
-    &:before {
-      content: "";
-      position: absolute;
-      display: block;
-      height: 100%;
-      width: 100%;
-      background: #000;
-      opacity: 0.7;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    .container {
-      text-align: center;
-    }
-
-    picture {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -2;
-
-      img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .title {
-      font-weight: 900;
-      font-size: min(9vw, 3em);
-      line-height: math.div(58, 48);
-      color: #fff;
-      position: relative;
-      margin-bottom: #{math.div(36, 48)}em;
-      text-align: center;
-    }
-
-    p {
-      color: #fff;
-      text-align: center;
-      opacity: 1;
-      margin: auto;
-      margin-bottom: #{math.div(36, 18)}em;
-      width: 96%;
-      max-width: #{math.div(598, 18)}em;
-    }
-  }
-}
-
-/* Small Desktop */
-@media only screen and (min-width: 64em) {
-  #cta {
+#cta {
+  position: relative;
+  padding: #{math.div(50, 16)}em 0;
+  @include mixin.breakpoint(64em) {
     padding: #{math.div(168, 16)}em 0;
   }
-}
-
-/* Large Desktop */
-@media only screen and (min-width: 1300px) {
-  #cta {
+  @include mixin.breakpoint(xlarge) {
     position: relative;
     margin-top: #{math.div(100, 16)}em;
     &:before {
@@ -393,6 +305,61 @@
         z-index: 1;
       }
     }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .title {
+    font-weight: 900;
+    font-size: min(9vw, 3em);
+    line-height: math.div(58, 48);
+    color: #fff;
+    position: relative;
+    margin-bottom: #{math.div(36, 48)}em;
+    text-align: center;
+  }
+
+  p {
+    color: #fff;
+    text-align: center;
+    opacity: 1;
+    margin: auto;
+    margin-bottom: #{math.div(36, 18)}em;
+    width: 96%;
+    max-width: #{math.div(598, 18)}em;
   }
 }
 
