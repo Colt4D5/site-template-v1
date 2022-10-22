@@ -1,3 +1,4 @@
+@use 'mixins' as mixin;
 @use "sass:math";
 
 /*-- -------------------------- -->
@@ -5,110 +6,104 @@
 <--- -------------------------- -*/
 
 /* Mobile */
-@media only screen and (min-width: 0em) {
-  #portfolio {
-    padding-top: #{math.div(50, 16)}em;
-    padding-bottom: 35%;
-    position: relative;
-    z-index: 5;
+#portfolio {
+  padding-top: #{math.div(50, 16)}em;
+  padding-bottom: 35%;
+  position: relative;
+  z-index: 5;
+  @include mixin.breakpoint(64em) {
+    padding: #{math.div(150, 16)}em 0;
+  }
 
-    .container {
-      width: 96%;
-      max-width: #{math.div(1322, 16)}em;
-      padding: 0;
-      margin: auto;
+  .container {
+    width: 96%;
+    max-width: #{math.div(1322, 16)}em;
+    padding: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: #{math.div(30, 16)}em;
+    font-size: min(1.3vw, 1em);
+
+    .row {
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: flex-start;
       gap: #{math.div(30, 16)}em;
-      font-size: min(1.3vw, 1em);
 
-      .row {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: #{math.div(30, 16)}em;
-
-        &:nth-of-type(1) {
-          picture {
-            &:nth-of-type(1) {
-              width: #{math.div(420, 16)}em;
-              height: #{math.div(567, 16)}em;
-            }
-
-            &:nth-of-type(2) {
-              width: #{math.div(420, 16)}em;
-              height: #{math.div(629, 16)}em;
-            }
-
-            &:nth-of-type(3) {
-              width: #{math.div(420, 16)}em;
-              height: #{math.div(512, 16)}em;
-            }
-          }
-        }
-
-        &:nth-of-type(2) {
-          picture {
-            &:nth-of-type(1) {
-              width: #{math.div(420, 16)}em;
-              height: #{math.div(492, 16)}em;
-            }
-
-            &:nth-of-type(2) {
-              width: #{math.div(420, 16)}em;
-              height: #{math.div(517, 16)}em;
-            }
-
-            &:nth-of-type(3) {
-              width: #{math.div(420, 16)}em;
-              height: #{math.div(629, 16)}em;
-            }
-          }
-        }
-
-        &:nth-of-type(3) {
-          picture {
-            &:nth-of-type(1) {
-              width: #{math.div(420, 16)}em;
-              height: #{math.div(625, 16)}em;
-            }
-
-            &:nth-of-type(2) {
-              width: #{math.div(420, 16)}em;
-              height: #{math.div(652, 16)}em;
-            }
-
-            &:nth-of-type(3) {
-              width: #{math.div(420, 16)}em;
-              height: #{math.div(629, 16)}em;
-            }
-          }
-        }
-
+      &:nth-of-type(1) {
         picture {
-          position: relative;
-          display: block;
-          img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            border-radius: #{math.div(8, 16)}em;
+          &:nth-of-type(1) {
+            width: #{math.div(420, 16)}em;
+            height: #{math.div(567, 16)}em;
+          }
+
+          &:nth-of-type(2) {
+            width: #{math.div(420, 16)}em;
+            height: #{math.div(629, 16)}em;
+          }
+
+          &:nth-of-type(3) {
+            width: #{math.div(420, 16)}em;
+            height: #{math.div(512, 16)}em;
           }
         }
       }
-    }
-  }
-}
 
-/* Small Desktop */
-@media only screen and (min-width: 64em) {
-  #portfolio {
-    padding: #{math.div(150, 16)}em 0;
+      &:nth-of-type(2) {
+        picture {
+          &:nth-of-type(1) {
+            width: #{math.div(420, 16)}em;
+            height: #{math.div(492, 16)}em;
+          }
+
+          &:nth-of-type(2) {
+            width: #{math.div(420, 16)}em;
+            height: #{math.div(517, 16)}em;
+          }
+
+          &:nth-of-type(3) {
+            width: #{math.div(420, 16)}em;
+            height: #{math.div(629, 16)}em;
+          }
+        }
+      }
+
+      &:nth-of-type(3) {
+        picture {
+          &:nth-of-type(1) {
+            width: #{math.div(420, 16)}em;
+            height: #{math.div(625, 16)}em;
+          }
+
+          &:nth-of-type(2) {
+            width: #{math.div(420, 16)}em;
+            height: #{math.div(652, 16)}em;
+          }
+
+          &:nth-of-type(3) {
+            width: #{math.div(420, 16)}em;
+            height: #{math.div(629, 16)}em;
+          }
+        }
+      }
+
+      picture {
+        position: relative;
+        display: block;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          border-radius: #{math.div(8, 16)}em;
+        }
+      }
+    }
   }
 }
 
@@ -117,83 +112,16 @@
 <--- -------------------------- -*/
 
 /* Mobile */
-@media only screen and (min-width: 0em) {
-  #cta {
-    position: relative;
-    padding: #{math.div(50, 16)}em 0;
-
-    &:before {
-      content: "";
-      position: absolute;
-      display: block;
-      height: 100%;
-      width: 100%;
-      background: #000;
-      opacity: 0.7;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    .container {
-      text-align: center;
-    }
-
-    picture {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -2;
-
-      img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .title {
-      font-weight: 900;
-      font-size: min(9vw, 3em);
-      line-height: math.div(58, 48);
-      color: #fff;
-      position: relative;
-      margin-bottom: #{math.div(36, 48)}em;
-      text-align: center;
-    }
-
-    p {
-      color: #fff;
-      text-align: center;
-      opacity: 1;
-      margin: auto;
-      margin-bottom: #{math.div(36, 18)}em;
-      width: 96%;
-      max-width: #{math.div(598, 18)}em;
-    }
-  }
-}
-
-/* Small Desktop */
-@media only screen and (min-width: 64em) {
-  #cta {
+#cta {
+  position: relative;
+  padding: #{math.div(50, 16)}em 0;
+  @include mixin.breakpoint(64em) {
     padding: #{math.div(168, 16)}em 0;
   }
-}
-
-/* Large Desktop */
-@media only screen and (min-width: 1300px) {
-  #cta {
+  @include mixin.breakpoint(xlarge) {
     position: relative;
     margin-top: #{math.div(100, 16)}em;
-    &:before {
-      display: none;
-    }
+    
     &:after {
       content: "";
       position: absolute;
@@ -210,16 +138,43 @@
       transform: translateX(-50%);
       z-index: -3;
     }
-    .container {
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    @include mixin.breakpoint(xlarge) {
+      display: none;
+    }
+  }
+
+  .container {
+    text-align: center;
+    @include mixin.breakpoint(xlarge) {
       width: 90.0625%;
       margin: auto;
     }
+  }
 
-    picture {
+  picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    @include mixin.breakpoint(xlarge) {
       width: 90.0625%;
       left: 50%;
       transform: translateX(-50%);
-
       &:before {
         content: "";
         position: absolute;
@@ -233,16 +188,43 @@
         z-index: 1;
       }
     }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .title {
+    font-weight: 900;
+    font-size: min(9vw, 3em);
+    line-height: math.div(58, 48);
+    color: #fff;
+    position: relative;
+    margin-bottom: #{math.div(36, 48)}em;
+    text-align: center;
+  }
+
+  p {
+    color: #fff;
+    text-align: center;
+    opacity: 1;
+    margin: auto;
+    margin-bottom: #{math.div(36, 18)}em;
+    width: 96%;
+    max-width: #{math.div(598, 18)}em;
   }
 }
 
 /* Dark Mode */
-@media only screen and (min-width: 0em) {
-  body.dark-mode {
-    #cta {
-      &:after {
-        display: none;
-      }
+body.dark-mode {
+  #cta {
+    &:after {
+      display: none;
     }
   }
 }

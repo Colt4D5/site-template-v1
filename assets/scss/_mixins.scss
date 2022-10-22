@@ -1,0 +1,90 @@
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+
+/*********************
+TOOLS
+*********************/
+
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin rotate($rotate...) {
+    /* Safari */
+    -webkit-transform: rotate($rotate);
+    /* Firefox */
+    -moz-transform: rotate($rotate);
+    /* IE */
+    -ms-transform: rotate($rotate);
+    /* Opera */
+    -o-transform: rotate($rotate);
+    /* Other */
+    transform: rotate($rotate);
+}
+
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+} /* usage: @include css-gradient(#dfdfdf,#f8f8f8); */
+
+$breakpoints: (
+  'small': 0,
+  'in-between': 666px,
+  'medium': 768px,
+  'large': 1024px,
+  'xlarge': 1300px,
+  'xxlarge': 1440px,
+  'xxxlarge': 1660px
+);
+// $breakpoints: (
+//   'small': 0,
+//   'medium': 640px,
+//   'large': 1024px,
+//   'xlarge': 1200px,
+//   'xxlarge': 1440px,
+//   'xxxlarge': 1660px
+// );
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media only screen and (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+/*******************
+ * usage: @include darkMode {
+ *    
+ * }
+*******************/
+@mixin darkMode {
+  @at-root body.dark {
+    @content;
+  }
+}
